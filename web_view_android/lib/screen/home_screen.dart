@@ -15,6 +15,10 @@ class HomeScreen extends StatelessWidget {
         centerTitle: true,
         actions: [
           IconButton(onPressed: (){
+            // http:// -> 예전에는 이것으로 전부 사용
+            // hhtps:// -> 지금은 이거 사용, 이게 조금더 보안이 좋다.
+            // 안드로이드와 IOS 2개다 http를 막고 있다. Why ? 보안적으로 좋지 않기 때문이다.
+            // 그러나, 원한다면 풀수 있는 방법이 존재
             if(controller == null){
               return;
             }
