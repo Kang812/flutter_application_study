@@ -7,3 +7,4 @@
   - [ch_03 row_and_column_test](row_and_colum_test)
 - [ch_04 web_view_android](web_view_android)
 - [ch_05 statefulwidget](statefulwidget)
+- [ch_06 image_carousel](image_carousel)
