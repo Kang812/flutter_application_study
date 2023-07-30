@@ -12,6 +12,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  int maxNumber = 1000;
   List<int> randomNumbers = [
     123,
     456,
@@ -32,7 +33,7 @@ class _HomeScreenState extends State<HomeScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              _Header(),
+              _Header(onPressed: onSettingsPop,),
               _Body(randomNumbers: randomNumbers,),
               _Footer(onPressed: onRandomNumberGenerate)
             ],
@@ -42,12 +43,26 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
+  void onSettingsPop() async {
+    final result = await Navigator.of(context).push<int>(
+      MaterialPageRoute(builder: (BuildContext context){
+        return  SettingsScreen();},
+      ),
+    );
+
+    if(result != null){
+      setState(() {
+        maxNumber = result;
+      });
+    }
+  }
+
   onRandomNumberGenerate(){
     final rand = Random();
     final Set<int> newNumbers = {};
 
     while(newNumbers.length != 3){
-      final number = rand.nextInt(1000);
+      final number = rand.nextInt(maxNumber);
       newNumbers.add(number);
     }
     setState(() {
@@ -57,7 +72,8 @@ class _HomeScreenState extends State<HomeScreen> {
 }
 
 class _Header extends StatelessWidget {
-  const _Header({super.key});
+  final VoidCallback onPressed;
+  const _Header({required this.onPressed, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -70,13 +86,7 @@ class _Header extends StatelessWidget {
           fontWeight: FontWeight.w700,
         ),),
         IconButton(
-          onPressed: (){
-            Navigator.of(context).push(
-              MaterialPageRoute(builder: (BuildContext context){
-                return  SettingsScreen();},
-              ),
-            );
-          },
+          onPressed: onPressed,
           icon: Icon(
             Icons.settings,
             color: RED_COLOR,
