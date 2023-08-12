@@ -11,3 +11,6 @@
 - [ch_08 u_and_i](u_and_i)
 - [ch_09 const_constructor](const_constructor)
 - [ch_10 random_number_generator](random_number_generator)
+- [ch_10 random_number_generator](random_number_generator)
+- [ch_11 buttons](buttons)
+- [ch_12 navigation](navigation)
