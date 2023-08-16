@@ -11,7 +11,7 @@ class HomeScreen extends StatelessWidget {
       ElevatedButton(
           onPressed: (){
             Navigator.of(context).push(
-              MaterialPageRoute(builder: (BuildContext context) => RouteOneScreen(),
+              MaterialPageRoute(builder: (BuildContext context) => RouteOneScreen(number: 123,),
               ),
             );
           },
