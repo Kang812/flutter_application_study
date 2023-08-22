@@ -9,6 +9,18 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return MainLayout(title: 'Home Screen', children: [
       ElevatedButton(
+        onPressed: (){
+          Navigator.of(context).maybePop();
+        },
+        child: Text("Maybe Pop"),
+      ),
+      ElevatedButton(
+        onPressed: (){
+          Navigator.of(context).pop();
+        },
+        child: Text("Pop"),
+      ),
+      ElevatedButton(
           onPressed: (){
             Navigator.of(context).push(
               MaterialPageRoute(builder: (BuildContext context) => RouteOneScreen(number: 123,),
